@@ -7,7 +7,9 @@
     "deploy": "docker build -t etherslist:latest .",
     "start": "NODE_ENV=development node bin/server.js",
     "lint": "./node_modules/.bin/eslint src --fix",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "devDependencies": {
     "autoprefixer": "^6.6.1",
@@ -67,10 +69,8 @@
     "webpack-merge": "^0.7.3"
   },
   "dependencies": {
-
     "material-ui": "^0.20.0",
     "morgan": "^1.6.1",
-
     "prop-types": "^15.6.0",
     "react": "^15.4.1",
     "react-dnd": "^2.5.4",
@@ -81,10 +81,9 @@
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.1.4",
     "redux-thunk": "^2.2.0",
-
     "truffle-contract": "4.0.6",
-    "web3": "^1.3.1"
-
+    "web3": "^1.3.1",
+    "@snyk/protect": "latest"
   },
   "lint-staged": {
     "src/**/*.js": [
@@ -96,5 +95,6 @@
     "ghooks": {
       "pre-push": ".githooks/pre-push"
     }
-  }
+  },
+  "snyk": true
 }
