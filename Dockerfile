@@ -1,4 +1,4 @@
-FROM node:carbon
+FROM node:16.14.2-stretch
 
 COPY . /app
 WORKDIR /app
